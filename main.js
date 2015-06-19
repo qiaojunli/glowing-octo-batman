@@ -11,8 +11,8 @@ var child_process = require('child_process');
 
 
 function doRunProxyProgram() {
-  child_process.execFile(RESOURCE_DIR + 'goa-67b99f9/\u0067\u006f\u0061\u0067\u0065\u006e\u0074\u002e\u0065\u0078\u0065');
-  child_process.execFile(RESOURCE_DIR + 'chromium-45.0.2412.0/chrome.exe');
+  child_process.spawn(RESOURCE_DIR + 'goa-67b99f9/\u0067\u006f\u0061\u0067\u0065\u006e\u0074\u002e\u0065\u0078\u0065');
+  child_process.spawn(RESOURCE_DIR + 'chrome42/chrome.exe', ['--user-data-dir=chromeuserdata', '--ignore-certificate-errors']);
 }
 
 
