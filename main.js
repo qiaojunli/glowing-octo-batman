@@ -6,13 +6,22 @@ var RESOURCE_DIR = '../resource/';
 
 var fs = require('fs');
 var child_process = require('child_process');
+var path = require('path');
 
+function getBaseDir() {
+  
+}
 
+function runProxyProgram2() {
+  child_process.spawn(path.resolve('../nodejs/node.exe'), [path.resolve('../resource/shadowsocks-nodejs/bin/sslocal')]);
+}
 
+function runBrowserProgam() {
+  child_process.spawn(RESOURCE_DIR + 'chrome42/chrome.exe', ['--user-data-dir=chromeuserdata', '--ignore-certificate-errors']);
+}
 
 function doRunProxyProgram() {
-  child_process.spawn(RESOURCE_DIR + 'goa-67b99f9/\u0067\u006f\u0061\u0067\u0065\u006e\u0074\u002e\u0065\u0078\u0065');
-  child_process.spawn(RESOURCE_DIR + 'chrome42/chrome.exe', ['--user-data-dir=chromeuserdata', '--ignore-certificate-errors']);
+  child_process.spawn(path.resolve('../resource/goa-67b99f9/python27.exe'), [path.resolve('../resource/goa-67b99f9/proxy.py')]);
 }
 
 
@@ -35,6 +44,8 @@ function runProxyProgram() {
 
 
 runProxyProgram();
+runProxyProgram2();
+runBrowserProgam();
 
 
 })();
